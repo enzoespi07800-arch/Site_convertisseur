@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang ="fr" >
+<head>
+    <meta charset="UTF-8">
+    <title>Hexadécimal</title>
+    <link rel ="stylesheet" href ="style.css">
+    <link rel="icon" href="images/logo_BaseX_onglet.png">
+</head>
+<body >
+    <!-- Navbar avec les liens et le logo -->
+	<div class="entete" id="navbar">
+        <div id="logo_baseX" ></div>
+            <nav class="texte_onglet">
+                <a href="Page.html" onmouseenter="visibility_apercu('convertisseur','visible')" onmouseleave="visibility_apercu('convertisseur','hidden')" onmousedown="theme_check()">Convertisseur</a>
+                <a href="binaire.html" onmouseenter="visibility_apercu('binaire','visible')" onmouseleave="visibility_apercu('binaire','hidden')" onmousedown="theme_check()">Binaire</a>
+                <a href="decimal.html" onmouseenter="visibility_apercu('decimal','visible')" onmouseleave="visibility_apercu('decimal','hidden')" onmousedown="theme_check()">Décimal</a>
+                <a href="hexadecimal.html" onmouseenter="visibility_apercu('hexadecimal','visible')" onmouseleave="visibility_apercu('hexadecimal','hidden')" onmousedown="theme_check()">Hexadécimal</a>
+            </nav>
+        <!-- Theme switch dans la navbar -->
+        <h2  id="texte_theme_switch"><pre>Thèmes :</pre></h2>
+        <div class="carre_light" id="theme_switch_black" onclick ="theme_switch_black()">
+        </div>
+        <div class="carre_light" id="theme_switch_white" onclick ="theme_switch_white()">
+        </div>
+        <!-- Images en aperçu pour les titres dans la navbar -->
+        <div class="apercu" id="apercu_binaire"> </div>
+        <div class="apercu" id="apercu_decimal"> </div>
+        <div class="apercu" id="apercu_hexadecimal"> </div>
+        <div class="apercu" id="apercu_convertisseur"> </div>
+	</div>
+
+    <h1 class="titre_page">Hexadécimal :</h1>
+
+    <div class="carre_conversion_shema">
+<h2 id="bin_hex_texte"><pre>
+    Binaire      --- >  Hexadécimal
+    1010 1011    --- >  ? <div id="bin_hex" class="tableau_convertion"> </div>
+    Resultat : ab
+    </pre></h2>
+    </div>
+<br><br>
+    <div class="carre_conversion_shema">
+    <h2><pre>
+    Décimal   --- >  Hexadécimal
+    171       --- >  ?
+    171       --- >  1010 1011 <h3 class="indication_expliquation1">(Voir Binaire)</h3>
+    1010 1011 --- >  ab <h3 id="indication_methode_precedente" class="indication_expliquation2">(Voir méthode précédente)</h3>
+
+    Resultat : ab
+    </pre></h2>
+    </div>
+    <br><br><br>
+
+
+    <!-- Footer pour les crédits -->
+    <footer class="entete" id="footer">
+        <!-- droite -->
+        <div class="carre_light" id="carre_dans_footer">
+            <div id="logo_IND"> </div>
+            <div id="texte_credits_et_sous_1">
+            <h3 class="texte_credits">M.Perminjat</h3>
+            <h4 class="sous_texte_credits">Enseignant en mathématiques et NSI</h4>
+            </div>
+            <div id="texte_credits_et_sous_2">
+            <h3 class="texte_credits">Spécialité NSI</h3>
+            <h4 class="sous_texte_credits">classe de 1re</h4>
+            </div>
+        </div>
+
+        <!-- milieu -->
+        <h2 id="titre_footer_realisateur">
+            Réalisé par :
+        </h2>
+
+        <ul class="h3" >
+                <li class="texte_realisateur"><h3>Enzo</h3></li>
+                <li class="texte_realisateur"><h3>Stanislas</h3></li>
+                <li class="texte_realisateur"><h3>Mempré</h3></li>
+                <li class="texte_realisateur"><h3>(Célestin)</h3></li>
+        </ul>
+
+        <!-- gauche -->
+        <h2 id="titre_footer_source">
+            Sources :
+        </h2>
+
+        <ul class="h3" id="texte_source">
+            <li><a href="http://gerald.perminjat.free.fr/"><h3>Support de cours, M. Perminjat</h3></a></li>
+            <li><a href="https://developer.mozilla.org/fr/docs/Web"><h3>Mozilla</h3></a></li>
+            <li><a href="https://www.gekkode.com/developpement/comment-obtenir-les-valeurs-css-en-javascript/"><h3>Gekkode</h3></a></li>
+            <li><a href="https://www.reddit.com/"><h3>Reddit</h3></a></li>
+            <li><a href="https://www.youtube.com/@whosajid"><h3>Sajid</h3></a></li>
+            <li><a href="https://www.vistaprint.fr"><h3>Vistaprint</h3></a></li>
+        </ul>
+
+        <!-- ligne -->
+        <div class="ligne" id="ligne_droite"></div>
+        <div class="ligne" id="ligne_gauche"></div>
+
+    </footer>
+
+            <script src=script.js type= "text/javascript"> </script>
+
+</body>
+</html>

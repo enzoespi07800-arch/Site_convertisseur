@@ -1,0 +1,532 @@
+/* déf de variable */
+:root{
+  /* couleurs */
+  --bg_dark: hsl(0,0%,0%);
+  --bg: hsl(0,0%,5%);
+  --bg_light:hsl(0,0%,10%);
+  --bg_hover:hsl(0,0%,6%);
+  --bg_light_hover:hsl(0,0%,15%);
+  --bg_image:url(images/bg.jpg);
+  --ligne: hsl(0,0%,95%);
+
+  /* thème switch */
+  --theme_clair:"false";
+
+  /* textes */
+  --texte0:hsl(0, 0%, 100%);
+  --texte1: hsl(0,0%,95%);
+  --texte2:hsl(0,0%,70%);
+
+  /* attributs des formes */
+  --border_bank: solid 1px hsl(0,0%,30%);
+  --box_shadow_bank:-2px 7px 7px 3px hsl(0, 0%, 3%);
+  --width_input_binaire:10ch;
+  --width_input_decimal:10ch;
+  --width_input_hexadecimal:10ch;
+  --logo_BaseX: url(images/logo_BaseX_dark.png);
+  --logo_IND: url(images/logo_IND_dark.png);
+
+  /* erreurs aiguillage */
+  --erreur_remplissage: hidden;
+  --erreur_caractere: hidden;
+  --erreur_vide:hidden;
+  --erreur_infinity:hidden;
+  --texte_erreur_color: red;
+
+  /* aperçus dans la navbar */
+  --visibility_apercu_binaire: hidden;
+  --visibility_apercu_decimal: hidden;
+  --visibility_apercu_hexadecimal: hidden;
+  --visibility_apercu_convertisseur: hidden;
+  --image_apercu_binaire:url(images/binaire_apercu_dark.png);
+  --image_apercu_decimal:url(images/decimal_apercu_dark.png);
+  --image_apercu_hexadecimal: url(images/hexadecimal_apercu_dark.png);
+  --image_apercu_convertisseur: url(images/convertisseur_apercu_dark.png);
+
+  /* tableaux de conversion image */
+  --deci_bin: url(images/tableau_deci_a_bin_dark.png);
+  --bin_deci: url(images/tableau_bin_a_deci_dark.png);
+  --hex_deci: url(images/tableau_hex_a_deci_dark.png);
+  --bin_hex: url(images/tableau_bin_a_hex_dark.png);
+}
+
+/* classe par défaut */
+body {
+  background-image:var(--bg_image);
+  background-size:100% 100%;
+  margin: 0;
+  padding: 0;
+}
+/* textes */
+a {
+  outline: none;
+  text-decoration: none;
+}
+
+a:link {
+  color: var(--texte1)
+}
+
+a:visited {
+  color: var(--texte1)
+}
+
+h1 {
+  color: var(--texte0);
+  align-self: center;
+  font-size: 4vw;
+  font-family:system-ui;
+}
+h2 {
+  color: var(--texte1);
+  font-size: 2vw;
+  font-family: system-ui;
+}
+
+h3 {
+  color: var(--texte2);
+  position: relative;
+  left: 0.5vw;
+  font-size: 1.5vw;
+}
+
+
+
+/* CLASSE */
+
+/* textes */
+.h1 {
+  color: var(--texte0);
+  align-self: center;
+  font-size: 4vw;
+}
+.h2 {
+  color: var(--texte1);
+  font-size: 2vw;
+}
+
+.h3 {
+  color: var(--texte2);
+  position: relative;
+  left: 0.5vw;
+  font-size: 1.5vw;
+}
+.texte_onglet {
+  z-index: 110;
+  display: flex;
+  position:relative;
+  left: 15vw;
+  gap: 2vw;
+  font-family:system-ui;
+  font-size: 2vw;
+  font-weight:500;
+}
+
+.texte_erreur {
+  color: var(--texte_erreur_color);
+  position: relative;
+  font-size: 1.5vw;
+}
+
+/* formes */
+.carre{
+  background-color:var(--bg);
+  border: var(--border_bank);
+  box-shadow: var(--box_shadow_bank); 
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.carre:hover{
+  background-color: var(--bg_hover);
+}
+
+.carre_light {
+  background-color:var(--bg_light);
+  border: var(--border_bank);
+  box-shadow: var(--box_shadow_bank); 
+  border-radius: 5px;
+}
+
+.carre_light:hover{
+  background-color: var(--bg_light_hover);
+  transform: scale(1.03);
+}
+
+.entete {
+  background-color:var(--bg);
+  border: var(--border_bank);
+  box-shadow: var(--box_shadow_bank); 
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+/* apercu dans la navbar */
+.apercu {
+  z-index: 200;
+  position: absolute;
+  top: 6vw;
+}
+/* input forme */
+.input {
+  height: 2vw;
+  background-color: var(--bg_light_hover);
+  border: var(--border_bank);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.5vw;
+  color: var(--texte2);
+  min-width: 100px;
+  font-weight: 600;
+}
+
+
+/* ID */
+
+/* id globale */
+#Page {
+    height: 1100px;
+    display: grid;
+}
+
+
+/* Convertisseur carre formes/textes */
+#carre_convertisseur_input {
+  position: relative;
+  top: 10vw;
+  width: 50vw;
+  height: 30vw;
+  justify-self: center;
+  display: grid;
+}
+
+#carre_button_convertir {
+  position: relative;
+  width: 10vw;
+  height: 3vw;
+  left: 5vw;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+
+}
+
+#carre_button_clear {
+  position: relative;
+  top: -3.1vw;
+  width: 10vw;
+  height: 3vw;
+  justify-self: left;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  margin-left: 23vw;
+
+}
+
+#titre_convertisseur {
+  justify-self: center;
+}
+
+#texte_plus_input_convertisseur {
+  position: relative;
+  top: -2vw;
+  margin-left: 5vw ;
+}
+
+#binaire{
+  width: var(--width_input_binaire);
+
+}
+#decimal{
+  width: var(--width_input_decimal);
+}
+#hexadecimal{
+  width: var(--width_input_hexadecimal);
+}
+
+
+/* Theme switch, formes/textes */
+#theme_switch_black {
+  width: 3vw;
+  height: 1.5vw;
+  background-color: black;
+  position: relative;
+  left: -15vw;
+  border-radius: 0;
+}
+#theme_switch_white {
+  width: 3vw;
+  height: 1.5vw;
+  background-color: white;
+  position: relative;
+  left: -15vw;
+  border-radius: 0;
+}
+
+#texte_theme_switch {
+  position: relative;
+  left: 31vw;
+  font-size: 1.5vw;
+  width: 100vw;
+}
+
+/* navbar forme/texte */
+#logo_baseX{
+  background-image:var(--logo_BaseX);
+  background-size: 100% 100%;
+  width: 9vw;
+  height: 9vw;
+  margin-left: 1vw;
+  position: absolute;
+}
+
+#navbar {
+  height: 8vw;
+  top: 0px;
+  position:fixed;
+  width: 101vw;
+}
+
+/* footer formes/textes */
+#footer {
+  height: 20vw;
+  width: 100%;
+  display: flex;
+  align-self:flex-end;
+  position: relative;
+}
+/* droite */
+#carre_dans_footer {
+  width: 28vw;
+  height: 14vw;
+  position: relative;
+  left: 65vw;
+  background-color: var(--bg_light);
+  border-radius:3vw;
+  padding: 2vw;
+  z-index: 3;
+  transform: scale(1);
+}
+#logo_IND {
+  block-size: 5vw;
+  background: var(--logo_IND);
+  background-size: 100% 100%;
+  width: 7vw;
+  height: 7vw;
+}
+.texte_credits {
+  color: var(--texte2);
+  font-size: 2vw;
+}
+.sous_texte_credits {
+  color: var(--texte2);
+  font-size: 1vw;
+  position: relative;
+  top: -2vw;
+  left: 0.6vw;
+  font-style: italic;
+  padding-bottom:0;
+}
+#texte_credits_et_sous_1{
+  top: -2vw;
+  position: relative;
+  padding-bottom:0;
+  height:1vw;
+}
+#texte_credits_et_sous_2{
+  top: -1vw;
+  position: relative;
+  padding-bottom:0;
+  height:1vw;
+}
+
+/* milieu */
+#titre_footer_realisateur {
+  position: relative;
+  right:-9vw ;
+  top: -8vw;
+  font-size: 2vw;
+}
+.texte_realisateur {
+  position: relative;
+  right:2.5vw ;
+  font-family:'Lucida Sans';
+  line-height: 2vw ;
+  color: var(--texte2);
+  top: 1vw;
+
+}
+/* gauche */
+#titre_footer_source {
+  position: relative;
+  right:45vw ;
+  top: -8vw;
+}
+#texte_source {
+  position: relative;
+  left: -60vw ;
+  top: 1vw;
+  font-family: 'Lucida Sans';
+  line-height: 1vw ;
+
+}
+
+
+/* ligne */
+.ligne {
+  background-color:var(--ligne);
+  border: solid 1px var(--ligne);
+  width: 0.2vw;
+  height: 17vw;
+  position: relative;
+  z-index: 2;
+}
+#ligne_droite {
+  left: -25vw;
+}
+#ligne_gauche {
+  left: -55vw;
+}
+
+/* textes erreurs aiguillage */
+#texte_erreur_remplissage {
+  visibility: var(--erreur_remplissage);
+  bottom: 18vw;
+}
+
+#texte_erreur_caractere {
+  visibility: var(--erreur_caractere);
+  bottom: 12.5vw;
+}
+
+#texte_erreur_infinity {
+  visibility: var(--erreur_infinity);
+  bottom: 23vw;
+}
+
+#texte_erreur_vide {
+  visibility: var(--erreur_vide);
+  bottom: 27vw;
+}
+
+#symbole_erreur {
+  position: relative;
+  width: 1vw;
+  height: 1vw;
+}
+
+/* apercu dans la navbar */
+#apercu_binaire {
+ visibility: var(--visibility_apercu_binaire);
+ background: var(--image_apercu_binaire);
+ background-size: 100% 100%;
+ height: 20vw;
+ width: 17vw;
+ right: 60vw;
+}
+#apercu_decimal {
+  visibility: var(--visibility_apercu_decimal);
+  background: var(--image_apercu_decimal);
+  background-size: 100% 100%;
+ height: 20vw;
+ width: 17vw;
+ right: 50vw;
+}
+#apercu_hexadecimal {
+  visibility:  var(--visibility_apercu_hexadecimal);
+  background: var(--image_apercu_hexadecimal);
+  background-size: 100% 100%;
+ height: 20vw;
+ width: 17vw;
+ right: 40vw;
+}
+#apercu_convertisseur {
+  visibility: var(--visibility_apercu_convertisseur);
+  background: var(--image_apercu_convertisseur);
+  background-size: 100% 100%;
+ height: 10vw;
+ width: 17vw;
+ right: 71vw;
+}
+
+/* CLASSE 3 autres pages explications */
+.carre_conversion_shema {
+  width: 50vw;
+  height: 25vw;
+  position: relative;
+  justify-self: center;
+  z-index: -1;
+  background-color:var(--bg);
+  border: var(--border_bank);
+  box-shadow: var(--box_shadow_bank); 
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.titre_page {
+  margin-top: 10vw;
+  justify-self: center;
+}
+.tableau_convertion{
+  position: relative;
+  bottom: 1vw;
+  left: 4.5vw;
+}
+.indication_expliquation1 {
+  font-size:1.3vw;
+  font-style: italic;
+  position: absolute;
+  left: 38vw;
+  top: 7.5vw;
+}
+.indication_expliquation2 {
+  font-size:1.3vw;
+  font-style: italic;
+  position: absolute;
+  left: 38vw;
+  top: 10vw;
+}
+
+/* Binaire */
+#deci_bin {
+  background: var(--deci_bin);
+  background-size: 100% 100%;
+  width: 45vw;
+  height: 10vw;
+}
+
+
+/* Décimal */
+#bin_deci {
+  background: var(--bin_deci);
+  background-size: 100% 100%;
+  width: 45vw;
+  height: 7.8vw;
+  top: 2vw;
+}
+#hex_deci {
+  background: var(--hex_deci);
+  background-size: 100% 100%;
+  width: 15vw;
+  height: 6vw;
+  left: 10vw;
+  top: 1vw;
+}
+
+
+/* Hexadécimal */
+#indication_methode_precedente{
+  left: 30vw;
+}
+#bin_hex {
+  background: var(--bin_hex);
+  background-size: 100% 100%;
+  width: 35vw;
+  height: 13vw;
+  top: 2vw;
+}
+#bin_hex_texte{
+  margin-top: 0;
+}
